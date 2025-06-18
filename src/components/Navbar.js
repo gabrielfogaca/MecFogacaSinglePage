@@ -1,4 +1,4 @@
-import logomf from './img/logomf.jpg';
+import logo1 from './img/logo1.jpeg';
 import './Font.css';
 
 function Navbar() {
@@ -6,13 +6,7 @@ function Navbar() {
     <nav class="bg-white">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logomf} class="h-8" alt="Mecanica Fogaça" />
-          <a
-            href="#services"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent Palito uppercase"
-          >
-            Mecanica Fogaça
-          </a>
+          <img src={logo1} class="h-8" alt="SS Engenharia Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
         <button
@@ -43,6 +37,23 @@ function Navbar() {
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white-100 rounded-lg bg-white-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-white-800 md:dark:bg-white-900 dark:border-white-700">
             <li>
               <a
+                href="#"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-black md:dark:text-blue-500 Palito uppercase"
+                aria-current="page"
+              >
+                Início
+              </a>
+            </li>
+            <li>
+              <a
+                href="#sobre"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent Palito uppercase"
+              >
+                Sobre
+              </a>
+            </li>
+            <li>
+              <a
                 href="#services"
                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent Palito uppercase"
               >
@@ -51,18 +62,18 @@ function Navbar() {
             </li>
             <li>
               <a
-                href="#sobre"
+                href="#localizacao"
                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent Palito uppercase"
               >
-                Quem Somos
+                Localização
               </a>
             </li>
             <li>
               <a
-                href="https://wa.me/5555999287017"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent Palito uppercase "
+                href="#contato"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent Palito uppercase"
               >
-                Agende Agora
+                Contato
               </a>
             </li>
           </ul>

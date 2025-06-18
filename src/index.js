@@ -21,8 +21,10 @@ root.render(
     <div className="bg-gray-200 min-h-screen">
       <Navbar />
       <Inicio />
-      <Services />
       <Sobre />
+      {/* <Timeline /> */}
+      <Avaliacoes />
+      <Services />
       <EmpreasaParceiras />
       <Map />
       <Contato />

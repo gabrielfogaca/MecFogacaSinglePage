@@ -1,5 +1,7 @@
 import React from 'react';
-import jeep from './img/jeep.jpg';
+import img14 from './img/img14.png';
+import img1 from './img/img15.jpeg';
+import logo1 from './img/logo1.jpeg';
 import { motion, useScroll } from 'framer-motion';
 import './Font.css';
 
@@ -21,60 +23,99 @@ const SobreMotion: Variants = {
 function Sobre() {
   const { scrollYProgress } = useScroll();
   return (
-    <div id="sobre" className="container max-xl mx-auto p-4">
-      {/* Título Centralizado */}
-      <h1 className="text-4xl font-bold text-center mb-8 uppercase">
-        QUEM SOMOS
-      </h1>
-
-      {/* Conteúdo principal */}
-      <div className="flex flex-col md:flex-row items-center">
+    <motion.div
+      variants={SobreMotion}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.5 }}
+    >
+      <div
+        className="container max-xl mx-auto flex flex-col md:flex-row items-center p-4"
+        id="sobre"
+      >
         {/* Coluna Esquerda */}
-        <div className="w-full md:w-1/2 flex justify-center pr-4">
-          <div className="relative w-full max-w-md">
+        <div className="w-full md:w-1/2 flex justify-center">
+          <div className="relative w-full">
             <img
-              src={jeep}
+              src={img14}
               alt="Logo"
               className="object-cover rounded-lg w-full h-auto"
             />
+            <div className="absolute top-20 left-0 sm:top-24 md:top-40">
+              <img
+                src={logo1}
+                alt="Logo"
+                className="object-cover rounded-lg h-16 sm:h-24 md:h-40"
+              />
+            </div>
           </div>
         </div>
 
         {/* Coluna Direita */}
         <div className="w-full md:w-1/2 flex flex-col justify-center">
-          <p className="leading-relaxed text-justify text-base sm:text-lg md:text-xl lg:text-2xl mb-32 space-y-4">
-            <strong className="block text-center">
-              🚛 MECÂNICA FOGAÇA | ESPECIALIZADA EM SISTEMA COMMON RAIL
-            </strong>
-            Na <strong>Mecânica Fogaça</strong>, somos especialistas em{' '}
-            <strong>injeção eletrônica diesel</strong> e sistemas{' '}
-            <strong>Common Rail</strong>. Trabalhamos com alto padrão de
-            qualidade, tecnologia de ponta e profissionais qualificados para
-            garantir o máximo desempenho e economia do seu motor. 🔧{' '}
-            <strong>Nossos serviços incluem:</strong>
-            <ul className="list-disc pl-8 mt-4 space-y-2">
-              <li>
-                ✔️ Recondicionamento de <strong>bicos injetores</strong>
-              </li>
-              <li>
-                ✔️ Reparos em <strong>bombas de alta e baixa pressão</strong>
-              </li>
-              <li>
-                ✔️ Manutenção de <strong>unidades injetoras</strong>
-              </li>
-              <li>
-                ✔️ <strong>Diagnóstico preciso de falhas</strong> com
-                equipamentos avançados
-              </li>
-              <br />
-            </ul>
-            🚛 Atendemos veículos leves e pesados com agilidade, confiança e
-            garantia de serviço.
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-center mb-6 Quemsomos">
+            QUEM SOMOS
+          </h1>
+          <p className="leading-relaxed text-justify text-lg sm:text-xl md:text-2xl lg:text-3xl mb-32">
+            Sabrina Schreiber Engenharia é uma empresa que oferece uma vasta
+            gama de serviços & projetos de engenharia civil, soluções em
+            regularização imobiliária, consultoria e assessoria técnica com
+            imparcialidade, ética e transparência. Com foco em reformas,
+            projetos arquitetônicos, elétricos e hidráulicos, também atuamos em
+            áreas como drenagem pluvial, retificação de áreas e loteamentos.
+            Nossa equipe de especialistas trabalha com responsabilidade,
+            garantindo segurança, inovação e eficiência em cada etapa dos
+            processos. Sempre prezando pelo cumprimento das normas técnicas e
+            pelas necessidades dos nossos clientes, buscamos resultados
+            excepcionais e sustentáveis.
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default Sobre;
+
+// <motion.div
+//       variants={SobreMotion}
+//       initial="offscreen"
+//       whileInView="onscreen"
+//       viewport={{ once: true, amount: 0.5 }}
+//     >
+//       <div className="container max-xl mx-auto flex flex-col md:flex-row items-center p-4">
+//         <div className="w-full md:w-1/2 flex justify-center">
+//           <div className="relative w-full">
+//             <img
+//               src={img14}
+//               alt="Logo"
+//               className="object-cover rounded-lg w-full h-auto"
+//             />
+//             <div className="absolute top-20 left-0 md:top-40">
+//               <img
+//                 src={logo1}
+//                 alt="Logo"
+//                 className="object-cover rounded-lg h-20 md:h-40"
+//               />
+//             </div>
+//           </div>
+//         </div>
+
+//         <div className="w-full md:w-1/2 flex flex-col justify-center">
+//           <h1 className="text-9xl text-center mb-6 Quemsomos">QUEM SOMOS</h1>
+//           <p className="leading-relaxed text-justify text-2xl">
+//             Sabrina Schreiber Engenharia é uma empresa que oferece uma vasta
+//             gama de serviços & projetos de engenharia civil, soluções em
+//             regularização imobiliária, consultoria e assessoria técnica com
+//             imparcialidade, ética e transparência. Com foco em reformas,
+//             projetos arquitetônicos, elétricos e hidráulicos, também atuamos em
+//             áreas como drenagem pluvial, retificação de áreas e loteamentos.
+//             Nossa equipe de especialistas trabalha com responsabilidade,
+//             garantindo segurança, inovação e eficiência em cada etapa dos
+//             processos. Sempre prezando pelo cumprimento das normas técnicas e
+//             pelas necessidades dos nossos clientes, buscamos resultados
+//             excepcionais e sustentáveis.
+//           </p>
+//         </div>
+//       </div>
+//     </motion.div>

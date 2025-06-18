@@ -1,93 +1,73 @@
 import React, { useState, useEffect } from 'react';
-import f250pordosolbg from './img/f250pordosolbg.png';
+import img18 from './img/img18.jpeg';
+import background from './img/background.jpeg';
+import ssmobile from './img/bgresized.jpeg';
+import logo2 from './img/logo2.jpeg';
+import projeto from './img/projeto4.jpg';
+import { motion, useScroll } from 'framer-motion';
+import { img } from 'framer-motion/client';
 
-const frases = [
-  'MECÂNICA FOGAÇA | ESPECIALIZADA EM SISTEMA COMMON RAIL',
-  'Bem-vindo ao mundo das Brutas',
-];
+const right = {
+  offscreen: { opacity: 0, x: -100 },
+  onscreen: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1 },
+  },
+};
+
+const left = {
+  offscreen: { opacity: 0, x: 100 },
+  onscreen: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1 },
+  },
+};
+
+function getWindowSize() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  return { width, height };
+}
 
 function Inicio() {
-  const [texto, setTexto] = useState('');
-  const [indexFrase, setIndexFrase] = useState(0);
-  const [digitando, setDigitando] = useState(true);
+  const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
-    let timeout;
+    const handleResize = () => {
+      setWindowSize(getWindowSize());
+    };
 
-    if (digitando) {
-      if (texto.length < frases[indexFrase].length) {
-        timeout = setTimeout(() => {
-          setTexto(frases[indexFrase].slice(0, texto.length + 1));
-        }, 100);
-      } else {
-        timeout = setTimeout(() => {
-          setDigitando(false);
-        }, 1500);
-      }
-    } else {
-      if (texto.length > 0) {
-        timeout = setTimeout(() => {
-          setTexto(texto.slice(0, texto.length - 1));
-        }, 50);
-      } else {
-        setDigitando(true);
-        setIndexFrase((prev) => (prev + 1) % frases.length);
-      }
-    }
+    // Adiciona o listener para o evento de resize da janela
+    window.addEventListener('resize', handleResize);
 
-    return () => clearTimeout(timeout);
-  }, [texto, digitando, indexFrase]);
-
-  const conteudoTexto = (
-    <>
-      {texto}
-      <span className="blinking-cursor">|</span>
-    </>
-  );
-
+    // Remove o listener quando o componente for desmontado
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <>
-      {window.innerWidth < 740 ? (
+      {windowSize.width < 740 ? (
         <div
           className="justify-center items-center bg-fixed h-screen static"
           style={{
-            backgroundImage: `url(${f250pordosolbg})`,
+            backgroundImage: `url(${ssmobile})`,
             backgroundAttachment: 'fixed',
           }}
-        >
-          <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full  bg-opacity-60">
-            <strong className="block text-center">{conteudoTexto}</strong>
-          </h1>
-        </div>
+        ></div>
       ) : (
         <div
           className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen"
           style={{
-            backgroundImage: `url(${f250pordosolbg})`,
+            backgroundImage: `url(${background})`,
             backgroundSize: 'cover',
             backgroundPosition: 'left',
             backgroundRepeat: 'no-repeat',
           }}
-        >
-          <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full  bg-opacity-60">
-            <strong className="block text-center">{conteudoTexto}</strong>
-          </h1>
-        </div>
+        ></div>
       )}
-
-      <style>{`
-        .blinking-cursor {
-          font-weight: 100;
-          font-size: 24px;
-          color: black;
-          animation: blink 1s step-start infinite;
-        }
-        @keyframes blink {
-          50% {
-            opacity: 0;
-          }
-        }
-      `}</style>
     </>
   );
 }
