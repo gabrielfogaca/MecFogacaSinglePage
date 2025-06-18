@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@material-tailwind/react';
-import logo from './img/logo2.jpeg';
+import logomf from './img/logomf.jpg';
 import { ReactComponent as Facebook } from './facebookblack.svg';
 import { ReactComponent as Instagram } from './instagramblack.svg';
 import { ReactComponent as Linkedin } from './linkedinblack.svg';
@@ -15,47 +15,25 @@ function SimpleFooter() {
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
             <img
-              src={logo}
+              src={logomf}
               className="h-32 sm:h-44"
-              alt="Sabrina Schreiber Logo"
+              alt="Mecanica Fogaça logo"
             />
           </a>
 
           {/* Redes Sociais */}
           <div className="flex flex-wrap items-center mb-6 text-gray-500 sm:mb-0 dark:text-gray-400 uppercase">
             <a
-              href="https://www.instagram.com/eng.sabrinaschreiber/"
+              href="https://www.instagram.com/mecanica.fogaca/"
               target="blank"
               className="me-4 md:me-6 flex"
             >
               <Instagram className="w-6 h-6 sm:w-8 sm:h-8 mr-1"></Instagram>
             </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61565196855155"
-              target="blank"
-              className="me-4 md:me-6 flex"
-            >
-              <Facebook className="w-6 h-6 sm:w-8 sm:h-8 mr-1"></Facebook>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sabrina-schreiber-jesus-822807201/"
-              target="blank"
-              className="me-4 md:me-6 flex"
-            >
-              <Linkedin className="w-6 h-6 sm:w-8 sm:h-8 mr-1"></Linkedin>
-            </a>
           </div>
 
           {/* Links */}
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-            <li>
-              <a
-                href="#sobre"
-                className="hover:underline me-4 md:me-6 uppercase"
-              >
-                Sobre
-              </a>
-            </li>
             <li>
               <a
                 href="#services"
@@ -73,7 +51,11 @@ function SimpleFooter() {
               </a>
             </li>
             <li>
-              <a href="#contato" className="hover:underline uppercase">
+              <a
+                href="https://wa.me/5555999287017"
+                target="_blank"
+                className="hover:underline uppercase"
+              >
                 Contato
               </a>
             </li>
