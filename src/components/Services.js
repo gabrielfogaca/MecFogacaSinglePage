@@ -5,7 +5,6 @@ import bombaebico from './img/bombaebico.png';
 import diagnosticocomscanner from './img/diagnosticocomscanner.jpg';
 import turbina from './img/turbina.jpg';
 import bombadealta from './img/bombadealta.jpg';
-import img11 from './img/img11.png';
 import './Font.css';
 import './Service.css';
 

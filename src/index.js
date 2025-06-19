@@ -12,7 +12,6 @@ import EmpreasaParceiras from './components/Empresasparceiras';
 import Contato from './components/Contato';
 import SimpleFooter from './components/Footer';
 import Avaliacoes from './components/Avaliacoes';
-import projeto from './components/img/projeto4.jpg';
 import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,6 +1,16 @@
-import React from 'react';
-import jeep from './img/jeep.jpg';
+import React, { useState } from 'react';
+import foto1 from './img/foto1.jpg';
+import foto2 from './img/foto2.jpg';
+import foto3 from './img/foto3.jpg';
+import foto4 from './img/foto4.jpg';
+import foto5 from './img/foto5.jpg';
+import foto6 from './img/foto6.jpg';
+import foto7 from './img/foto7.jpg';
+import foto8 from './img/foto8.jpg';
+import foto9 from './img/foto9.jpg';
+
 import { motion, useScroll } from 'framer-motion';
+
 import './Font.css';
 
 const SobreMotion: Variants = {
@@ -18,8 +28,16 @@ const SobreMotion: Variants = {
   },
 };
 
+const imagens = [foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9];
+
 function Sobre() {
+  const [index, setIndex] = useState(0);
+  const total = imagens.length;
+
+  const nextSlide = () => setIndex((prev) => (prev + 1) % total);
+  const prevSlide = () => setIndex((prev) => (prev - 1 + total) % total);
   const { scrollYProgress } = useScroll();
+
   return (
     <div id="sobre" className="container max-xl mx-auto p-4">
       {/* Título Centralizado */}
@@ -32,11 +50,29 @@ function Sobre() {
         {/* Coluna Esquerda */}
         <div className="w-full md:w-1/2 flex justify-center pr-4">
           <div className="relative w-full max-w-md">
-            <img
-              src={jeep}
-              alt="Logo"
-              className="object-cover rounded-lg w-full h-auto"
-            />
+            <div className="relative w-full h-[35rem] -mt-5 overflow-hidden rounded-lg">
+              <img
+                src={imagens[index]}
+                alt={`Slide ${index + 1}`}
+                className="object-cover w-full h-full transition-all duration-500"
+              />
+
+              {/* Botão Anterior */}
+              <button
+                onClick={prevSlide}
+                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+              >
+                ‹
+              </button>
+
+              {/* Botão Próximo */}
+              <button
+                onClick={nextSlide}
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+              >
+                ›
+              </button>
+            </div>
           </div>
         </div>
 
@@ -47,9 +83,9 @@ function Sobre() {
               🚛 MECÂNICA FOGAÇA | ESPECIALIZADA EM SISTEMA COMMON RAIL
             </strong>
             Na <strong>Mecânica Fogaça</strong>, somos especialistas em{' '}
-            <strong>injeção eletrônica diesel</strong> e sistemas{' '}
-            <strong>Common Rail</strong>. Trabalhamos com alto padrão de
-            qualidade, tecnologia de ponta e profissionais qualificados para
+            <strong>injeção eletrônica diesel</strong> -{' '}
+            <strong> sistemas Common Rail</strong>. Trabalhamos com alto padrão
+            de qualidade, tecnologia de ponta e profissionais qualificados para
             garantir o máximo desempenho e economia do seu motor. 🔧{' '}
             <strong>Nossos serviços incluem:</strong>
             <ul className="list-disc pl-8 mt-4 space-y-2">

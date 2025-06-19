@@ -49,7 +49,7 @@ function Inicio() {
     <>
       {window.innerWidth < 740 ? (
         <div
-          className="justify-center items-center bg-fixed h-screen static"
+          className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen"
           style={{
             backgroundImage: `url(${f250pordosolbg})`,
             backgroundAttachment: 'fixed',
