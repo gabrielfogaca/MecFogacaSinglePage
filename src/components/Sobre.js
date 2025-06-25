@@ -8,8 +8,6 @@ import foto6 from './img/foto6.jpg';
 import foto7 from './img/foto7.jpg';
 import foto8 from './img/foto8.jpg';
 import foto9 from './img/foto9.jpg';
-import foto0 from './img/soomel.jpg';
-import foto10 from './img/motor.jpg';
 
 import { motion, useScroll } from 'framer-motion';
 
@@ -30,19 +28,7 @@ const SobreMotion: Variants = {
   },
 };
 
-const imagens = [
-  foto10,
-  foto7,
-  foto1,
-  foto2,
-  foto3,
-  foto4,
-  foto5,
-  foto6,
-  foto8,
-  foto9,
-  foto0,
-];
+const imagens = [foto7, foto1, foto2, foto3, foto4, foto5, foto6, foto8, foto9];
 
 function Sobre() {
   const [index, setIndex] = useState(0);

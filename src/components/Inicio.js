@@ -9,7 +9,7 @@ const frases = [
   'Bem-vindo ao mundo das Brutas',
 ];
 
-const imagensMobile = [f150frente, f250pordosolbg, f250motor];
+const imagensMobile = [f250, f150frente, f250pordosolbg, f250motor];
 const imagensDesktop = [f250pordosolbg, f150frente, f250];
 
 function Inicio() {
@@ -17,18 +17,19 @@ function Inicio() {
   const [indexFrase, setIndexFrase] = useState(0);
   const [digitando, setDigitando] = useState(true);
   const [bgIndex, setBgIndex] = useState(0);
-  const isMobile = window.innerWidth < 740;
-  const imagens = isMobile ? imagensMobile : imagensDesktop;
 
+  // Troca de background a cada 3 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex((prev) => (prev + 1) % imagens.length);
-    }, 4000);
+      setBgIndex((prev) => (prev + 1) % imagensMobile.length); // Ambos têm mesmo tamanho
+    }, 5000);
     return () => clearInterval(interval);
-  }, [imagens.length]);
+  }, []);
 
+  // Efeito digitando
   useEffect(() => {
     let timeout;
+
     if (digitando) {
       if (texto.length < frases[indexFrase].length) {
         timeout = setTimeout(() => {
@@ -49,6 +50,7 @@ function Inicio() {
         setIndexFrase((prev) => (prev + 1) % frases.length);
       }
     }
+
     return () => clearTimeout(timeout);
   }, [texto, digitando, indexFrase]);
 
@@ -61,19 +63,33 @@ function Inicio() {
 
   return (
     <>
-      <div
-        className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen transition-all duration-1000 ease-in-out"
-        style={{
-          backgroundImage: `url(${imagens[bgIndex]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: isMobile ? 'center' : 'left',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full bg-opacity-60">
-          <strong className="block text-center">{conteudoTexto}</strong>
-        </h1>
-      </div>
+      {window.innerWidth < 820 ? (
+        <div
+          className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen transition-all duration-1000 ease-in-out"
+          style={{
+            backgroundImage: `url(${imagensMobile[bgIndex]})`,
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full bg-opacity-60">
+            <strong className="block text-center">{conteudoTexto}</strong>
+          </h1>
+        </div>
+      ) : (
+        <div
+          className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen transition-all duration-1000 ease-in-out"
+          style={{
+            backgroundImage: `url(${imagensDesktop[bgIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full bg-opacity-60">
+            <strong className="block text-center">{conteudoTexto}</strong>
+          </h1>
+        </div>
+      )}
 
       <style>{`
         .blinking-cursor {
