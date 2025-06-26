@@ -1,35 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import f250pordosolbg from './img/f250pordosolbg.png';
-import f150frente from './img/150Frentefiltro.jpeg';
+import f150frente from './img/150Frentefiltro.JPG';
 import f250motor from './img/motor.jpg';
 import f250 from './img/f250.jpg';
+import f250sol from './img/f250pordosolbg.png';
+import pikcup from './img/pikcup.jpg';
+import frente from './img/frente.jpg';
 
 const frases = [
   'MECÂNICA FOGAÇA | ESPECIALIZADA EM SISTEMA COMMON RAIL',
   'Bem-vindo ao mundo das Brutas',
 ];
 
-const imagensMobile = [f250, f150frente, f250pordosolbg, f250motor];
-const imagensDesktop = [f250pordosolbg, f150frente, f250];
+const imagensMobile = [frente, pikcup, f250motor];
+const imagensDesktop = [f150frente, f250, f250sol];
 
 function Inicio() {
   const [texto, setTexto] = useState('');
   const [indexFrase, setIndexFrase] = useState(0);
   const [digitando, setDigitando] = useState(true);
   const [bgIndex, setBgIndex] = useState(0);
+  const [vh, setVh] = useState(window.innerHeight);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 820);
 
-  // Troca de background a cada 3 segundos
+  // Alterna o background a cada 5s
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex((prev) => (prev + 1) % imagensMobile.length); // Ambos têm mesmo tamanho
+      setBgIndex((prev) => (prev + 1) % imagensMobile.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  // Efeito digitando
+  // Detecta redimensionamento de tela para mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setVh(window.innerHeight);
+      setIsMobile(window.innerWidth < 820);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Efeito de digitação
   useEffect(() => {
     let timeout;
-
     if (digitando) {
       if (texto.length < frases[indexFrase].length) {
         timeout = setTimeout(() => {
@@ -50,7 +64,6 @@ function Inicio() {
         setIndexFrase((prev) => (prev + 1) % frases.length);
       }
     }
-
     return () => clearTimeout(timeout);
   }, [texto, digitando, indexFrase]);
 
@@ -61,41 +74,35 @@ function Inicio() {
     </>
   );
 
+  const bgStyle = {
+    backgroundImage: `url(${
+      (isMobile ? imagensMobile : imagensDesktop)[bgIndex]
+    })`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: isMobile ? '100% 100%' : 'cover',
+    backgroundAttachment: 'scroll',
+    height: `${vh}px`,
+    transition: 'background-image 1s ease-in-out',
+  };
+
   return (
     <>
-      {window.innerWidth < 820 ? (
-        <div
-          className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen transition-all duration-1000 ease-in-out"
-          style={{
-            backgroundImage: `url(${imagensMobile[bgIndex]})`,
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full bg-opacity-60">
-            <strong className="block text-center">{conteudoTexto}</strong>
-          </h1>
-        </div>
-      ) : (
-        <div
-          className="flex justify-center items-center bg-fixed bg-no-repeat bg-center bg-cover h-screen transition-all duration-1000 ease-in-out"
-          style={{
-            backgroundImage: `url(${imagensDesktop[bgIndex]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'left',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          <h1 className="text-center bg-[#282828] text-white uppercase font-bold text-3xl py-4 px-[5px] w-full bg-opacity-60">
-            <strong className="block text-center">{conteudoTexto}</strong>
-          </h1>
-        </div>
-      )}
+      <div
+        key={bgIndex}
+        className="flex justify-center items-center w-full min-h-screen transition-opacity duration-1000 ease-in-out"
+        style={bgStyle}
+      >
+        <h1 className="text-center bg-[#282828]/70 backdrop-blur-sm text-white uppercase font-bold text-3xl py-4 px-2 w-full">
+          <strong className="block">{conteudoTexto}</strong>
+        </h1>
+      </div>
 
       <style>{`
         .blinking-cursor {
           font-weight: 100;
           font-size: 24px;
-          color: black;
+          color: white;
           animation: blink 1s step-start infinite;
         }
         @keyframes blink {
