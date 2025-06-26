@@ -1,27 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.52c491e6.css",
-    "main.js": "/static/js/main.251eb727.js",
+    "main.css": "/static/css/main.fdc3f815.css",
+    "main.js": "/static/js/main.7ce25602.js",
     "static/js/453.9e32fd0f.chunk.js": "/static/js/453.9e32fd0f.chunk.js",
     "static/media/oficina.png": "/static/media/oficina.89c8b1bddc327056c787.png",
     "static/media/f250pordosolbg.png": "/static/media/f250pordosolbg.94300a908ab9304c328c.png",
     "static/media/f250.jpg": "/static/media/f250.ed075bc5a81a3897ac17.jpg",
     "static/media/foto9.jpg": "/static/media/foto9.67ffc994bcae0fb79893.jpg",
-    "static/media/150Frentefiltro.jpeg": "/static/media/150Frentefiltro.cf6cb89c54197a9c61af.jpeg",
     "static/media/foto8.jpg": "/static/media/foto8.a0b5dbddc7f88eb43aaf.jpg",
     "static/media/Oswald-VariableFont_wght.ttf": "/static/media/Oswald-VariableFont_wght.7cecd0da606d25b0905d.ttf",
     "static/media/Roboto-Thin.ttf": "/static/media/Roboto-Thin.a4d410dfda20e10f3aed.ttf",
     "static/media/foto5.jpg": "/static/media/foto5.4c623786dc80ee963fe5.jpg",
     "static/media/Anton-Regular.ttf": "/static/media/Anton-Regular.170b842f9a8cd6150a0d.ttf",
+    "static/media/frente.jpg": "/static/media/frente.9554a1fcd1a8240a0eb2.jpg",
     "static/media/foto1.jpg": "/static/media/foto1.e499d57da94d1d2b283b.jpg",
     "static/media/motor.jpg": "/static/media/motor.f47f90be2071e0cc3dfd.jpg",
     "static/media/foto4.jpg": "/static/media/foto4.c1da96168e08d66e91b9.jpg",
     "static/media/DancingScript-VariableFont_wght.ttf": "/static/media/DancingScript-VariableFont_wght.d02a1ee17643667e9808.ttf",
     "static/media/foto6.jpg": "/static/media/foto6.ef9e0910db109c705772.jpg",
     "static/media/foto2.jpg": "/static/media/foto2.c2ec1e999527ef59aa43.jpg",
+    "static/media/150Frentefiltro.JPG": "/static/media/150Frentefiltro.66b2d6a906edbf9346c1.JPG",
     "static/media/BaskervvilleSC-Regular.ttf": "/static/media/BaskervvilleSC-Regular.a88c4f45f3b148c8ae39.ttf",
     "static/media/foto7.jpg": "/static/media/foto7.7017ea6ef1a949d597ac.jpg",
     "static/media/diagnosticocomscanner.jpg": "/static/media/diagnosticocomscanner.f26b5aeeea0f6bea41de.jpg",
+    "static/media/pikcup.jpg": "/static/media/pikcup.dc1ce7d838885a217e05.jpg",
     "static/media/foto3.jpg": "/static/media/foto3.5d280e559d8a9727410d.jpg",
     "static/media/bombaebico.png": "/static/media/bombaebico.9f09a116bdfbf16fa9e6.png",
     "static/media/BebasNeue-Regular.ttf": "/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
@@ -38,12 +40,12 @@
     "static/media/linkedinblack.svg": "/static/media/linkedinblack.7b175a23e7cc2ef45bd19ea9b7ca9777.svg",
     "index.html": "/index.html",
     "static/media/facebookblack.svg": "/static/media/facebookblack.f47990168b9df21a0cff617996edd963.svg",
-    "main.52c491e6.css.map": "/static/css/main.52c491e6.css.map",
-    "main.251eb727.js.map": "/static/js/main.251eb727.js.map",
+    "main.fdc3f815.css.map": "/static/css/main.fdc3f815.css.map",
+    "main.7ce25602.js.map": "/static/js/main.7ce25602.js.map",
     "453.9e32fd0f.chunk.js.map": "/static/js/453.9e32fd0f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52c491e6.css",
-    "static/js/main.251eb727.js"
+    "static/css/main.fdc3f815.css",
+    "static/js/main.7ce25602.js"
   ]
 }
